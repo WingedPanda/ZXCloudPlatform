@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitor - Temperature and Humidity</title>
+    <link rel="stylesheet" href="css/c3.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/d3.min.js" ></script>
+    <script src="js/c3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+var from = new Date(Date.parse("2016-09-12T06:00"));
+var   to = new Date(Date.parse("2016-09-12T18:00"));
+
+var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+        x: "timestamp",
+        columns: []
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: function(x) { return x.toTimeString().substr(0, 5); },
+                count: 24 + 1
+            },
+            padding: 0
+        },
+        y: {
+            label: "Temperature",
+            min: 0,
+            max: 100,
+            default: [ 0, 100 ],
+            padding: 0
+        },
+        y2: {
+            label: "Humidity %",
+            show: true,
+            min: 0,
+            max: 100,
+            default: [ 0, 100 ],
+            padding: 0,
+        }
+    },
+    subchart: {
+        show: true
+    },
+    zoom: {
+        enabled: true
+    },
+    point: {
+        show: true
+    }
+});
+
+$.ajax({
+    url: "/api/sensor/dht11-living-room/data",
+//    url: "/api/sensor/dht11-living-room/value",
+    data: {
+        from: from.toJSON(),
+        to: to.toJSON()
+    }
+}).then(function(rawData) {
+    var data = {
+        x: "timestamp",
+        axes: {
+            temperature: "y",
+            humidity: "y2"
+        },
+        colors: {
+            temperature: "red",
+            humidity: "blue"
+        },
+        columns: [
+            ["timestamp"],
+            ["temperature"],
+            ["humidity"]
+        ],
+        types: {
+            temperature: "area",
+            humidity: "area"
+        }
+    };
+    rawData.forEach(function(row, i) {
+        data.columns[0].push(new Date(from * 1 + i * 60 * 1000));
+        data.columns[1].push(row.temperature === Number.MIN_SAFE_INTEGER ? null : row.temperature);
+        data.columns[2].push(row.humidity === Number.MIN_SAFE_INTEGER ? null : row.humidity);
+    });
+    chart.load(data);
+});
+</script>
+
+</body>
+</html>
