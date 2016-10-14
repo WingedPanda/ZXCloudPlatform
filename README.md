@@ -2,7 +2,7 @@
 Bridge monitoring platform
 
 1. Installation
-  npm install
+npm install
 
 2. Start
-  npm start
+npm start
