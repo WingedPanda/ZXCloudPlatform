@@ -1,6 +1,8 @@
 # ZXCloudPlatform
 Bridge monitoring platform
 
-npm install
+1. Installation
+  npm install
 
-npm start
+2. Start
+  npm start
