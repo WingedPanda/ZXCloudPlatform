@@ -1,7 +1,8 @@
 # ZXCloudPlatform
 Bridge monitoring platform
+http协议
 
 
-npm install
+#2 npm install
 
-npm start
+#2 npm start
