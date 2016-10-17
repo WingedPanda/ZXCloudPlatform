@@ -1,7 +1,8 @@
 # ZXCloudPlatform
-Bridge monitoring platform
+Bridge monitoring platform  
+http协议
 
-
-npm install
-
-npm start
+# start
+1. npm install
+2. npm start
+3. open http://localhost:3000
