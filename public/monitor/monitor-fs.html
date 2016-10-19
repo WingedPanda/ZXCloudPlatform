@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+  <link rel="stylesheet" href="../css/monitor-sensor/monitor-fs.css" media="screen" title="no title">
+
+	<link rel="stylesheet" href="../css/normalize.css" media="screen" title="no title">
+</head>
+<body>
+
+		<div class="nav">
+			<div class="nav-wrapper">
+				<a href="" class="brand-logo center">滁河大桥实时监测数据</a>
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+					<li><a href="#"><i class="material-icons">view_headline</i></a></li>
+				</ul>
+		 </div>
+	 </div>
+
+	<section>
+		<div class="tile">
+			<div class="row">
+				<div class="col s6">
+						<a class="current-time1">2016年10月17日 14:18</a>
+				</div>
+				<div class="col s6">
+					<a class="current-time1 value">31.6958432</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="title">
+			<div class="row">
+					<div class="col s3">
+						<a class="current-time1 value">31.7</a>
+					</div>
+
+					<div class="col s5">
+							<a href="#"h2>插件展示效果</a>
+					</div>
+
+					<div class="col s2">
+						<div class="indicator">
+							<ul>
+								<li class="title h2">taday</li>
+								<li class="number h3">max:50mm</li>
+								<li class="number h3">min:-50mm</li>
+							</ul>
+						</div>
+					</div>
+				<div class="col s2">
+					<div class="indicator">
+						<ul>
+							<li class="title h2">yestaday</li>
+							<li class="number h3">max:50mm</li>
+							<li class="number h3">min:-50mm</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+			<div>
+				<div class="row">
+					<div class="col s12 m4">
+
+   <!-- <label>Browser Select</label> -->
+						    <select class="browser-default" >
+							    <option value="" disabled selected>选择展示方式</option>
+							    <option value="1"><a href="#">柱状图</a></option>
+							    <option value="2">饼图</option>
+							    <option value="3">线性</option>
+						    </select>
+
+					</div class="">
+					<div class="subtitle">
+						<div class="col s12 m8 ">
+								<span class="right">
+									<a href="#"><i class="material-icons" >search</i></a>
+									<a href="#"><i class="material-icons" >view_module</i></a>
+									<a href="#"><i class="material-icons" >refresh</i></a>
+									<a href="#"><i class="material-icons" >more_vert</i></a>
+								</span>
+						</div>
+				 </div>
+			 </div>
+			 <div class="charts" style=" background-color: #e3f2fd;">
+
+
+				<div  class="chart">
+					<canvas id="myChart" width="860" height="460" ></canvas>
+					<script>
+					var ctx = document.getElementById("myChart");
+					var myChart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+							datasets: [{
+								label: '# of Votes',
+								data: [12, 19, 3, 5, 2, 3],
+								backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [
+									'rgba(255,99,132,1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+							}]
+						},
+						options: {
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero:true
+									}
+								}]
+							}
+						}
+					});
+					</script>
+				</div>
+		</div>
+	</div>
+	</section>
+
+	<footer>
+    <p class="bottom blue-grey-text center-align" >copyright©南京智行信息科技有限公司</p>
+	</footer>
+</body>

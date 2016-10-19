@@ -1,97 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Monitor - Temperature and Humidity</title>
-    <link rel="stylesheet" href="css/c3.min.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/d3.min.js" ></script>
-    <script src="js/c3.min.js" charset="utf-8"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<style>
+		body{margin:0;padding:0;overflow-x:hidden;}
+		html, body{height:100%;}
+		img{border:none;}
+		*{font-family:'微软雅黑';font-size:12px;color:#626262;}
+		.nav-wrapper{
+		background-color:#b2ebf2;
+		}
+	</style>
 </head>
 <body>
-<div id="chart"></div>
-<script>
-var from = new Date(Date.parse("2016-09-12T06:00"));
-var   to = new Date(Date.parse("2016-09-12T18:00"));
+	<nav>
+	    <div class="nav-wrapper">
+			<a href="" class="brand-logo">滁河大桥监测数据</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+			  <li><a href="#">注销</a></li>
+			  <li><a href="#">修改密码</a></li>
+			  <li><a href="#">help</a></li>
+			</ul>
+	    </div>
+	</nav>
 
-var chart = c3.generate({
-    bindto: '#chart',
-    data: {
-        x: "timestamp",
-        columns: []
-    },
-    axis: {
-        x: {
-            type: 'timeseries',
-            tick: {
-                format: function(x) { return x.toTimeString().substr(0, 5); },
-                count: 24 + 1
-            },
-            padding: 0
-        },
-        y: {
-            label: "Temperature",
-            min: 0,
-            max: 100,
-            default: [ 0, 100 ],
-            padding: 0
-        },
-        y2: {
-            label: "Humidity %",
-            show: true,
-            min: 0,
-            max: 100,
-            default: [ 0, 100 ],
-            padding: 0,
-        }
-    },
-    subchart: {
-        show: true
-    },
-    zoom: {
-        enabled: true
-    },
-    point: {
-        show: true
-    }
-});
-
-$.ajax({
-    url: "/api/sensor/dht11-living-room/data",
-//    url: "/api/sensor/dht11-living-room/value",
-    data: {
-        from: from.toJSON(),
-        to: to.toJSON()
-    }
-}).then(function(rawData) {
-    var data = {
-        x: "timestamp",
-        axes: {
-            temperature: "y",
-            humidity: "y2"
-        },
-        colors: {
-            temperature: "red",
-            humidity: "blue"
-        },
-        columns: [
-            ["timestamp"],
-            ["temperature"],
-            ["humidity"]
-        ],
-        types: {
-            temperature: "area",
-            humidity: "area"
-        }
-    };
-    rawData.forEach(function(row, i) {
-        data.columns[0].push(new Date(from * 1 + i * 60 * 1000));
-        data.columns[1].push(row.temperature === Number.MIN_SAFE_INTEGER ? null : row.temperature);
-        data.columns[2].push(row.humidity === Number.MIN_SAFE_INTEGER ? null : row.humidity);
-    });
-    chart.load(data);
-});
-</script>
-
+	<section>
+		<div class="row" style="padding:0px;">
+			<div class="col s6"><p style="background-color:#b2dfdb; height:500px; width:780px; margin:5px;">导航部分</p></div>
+			
+			<div class="col s6"><p style="background-color:#80d8ff; height:500px; width:780px; margin:5px;">地图部分</p></div>
+			 
+		</div>
+	</section>
+	
+	<footer>
+		<div class="row">
+			<div class="col s6">
+				<div class="row">
+					<div class="col s3" style="background-color:#e1f5fe; height:160px;width:160px;margin:5px 15px;padding:0px;">第一部分</div>
+					<div class="col s3" style="background-color:#b3e5fc; height:160px;width:160px;margin:5px 15px;padding:0px;">第二部分</div>
+					<div class="col s3" style="background-color:#81d4fa; height:160px;width:160px;margin:5px 15px;padding:0px;">第三部分</div>
+					<div class="col s3" style="background-color:#4fc3f7; height:160px;width:160px;margin:5px 15px;padding:0px;">第四部分</div>
+				</div>
+			</div>
+			<div class="col s6">
+				<div class="row">
+					<div class="col s3" style="background-color:#29b6f6; height:160px;width:160px;margin:5px 15px;padding:0px;">第五部分</div>
+					<div class="col s3" style="background-color:#03a9f4; height:160px;width:160px;margin:5px 15px;padding:0px;">第六部分</div>
+					<div class="col s3" style="background-color:#039be5; height:160px;width:160px;margin:5px 15px;padding:0px;">第七部分</div>
+					<div class="col s3" style="background-color:#0288d1; height:160px;width:160px;margin:5px 15px;padding:0px;">第八部分</div>
+				</div>
+			</div>
+		</div>
+	</footer>  
 </body>
 </html>

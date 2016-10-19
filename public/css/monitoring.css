@@ -1,0 +1,5 @@
+.row .col .indicator
+{
+    display: inline-block;
+    margin-top: 20px;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="css/monitoring.css"  media="screen,projection"/>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+
+	<style>
+		body{
+		margin:0px 200px;
+		}
+		nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i{
+			height: 50px;
+			line-height: 50px;
+		}
+
+		*{font-family:'微软雅黑';font-size:12px;color:#626262;}
+
+		.row{
+			height: 60px;
+			margin-left: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+			background-color:#e3f2fd;
+		}
+
+		hr {
+			display: block;
+			-webkit-margin-before: 0.5em;
+			-webkit-margin-after: 0.5em;
+			-webkit-margin-start: auto;
+			-webkit-margin-end: auto;
+			border-style: inset;
+			border-width: 1px;
+			border-top-width: 1px;
+			border-right-width: 0px;
+			border-bottom-width: 0px;
+			border-left-width:0px;
+
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper">
+		<a><i class="material-icons left">toc</i></a>
+		<i class="center">滁河大桥实时监测数据</i>
+		</div>
+	</nav>
+
+	<section>
+		<div class="row" style="padding:0px;">
+			<div class="col s6">
+				<div class="indicator">
+						<span class="title h3">current time</span>
+				</div>
+			</div>
+			<div class="col s6"><a>具体时间值</a></div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+
+			<div class="col s3">
+					近似值
+			</div>
+			<div class="col s5">
+					一个插件
+			</div>
+			<div class="col s4">
+					最大最小值
+			</div>
+		</div>
+
+		<hr>
+
+		<div>
+			<div>
+				<div class="row">
+					<div class="col s12 m4">
+						<div class="input-field col s12">
+							<select multiple >
+							    <option value="" disabled selected>Choose your option</option>
+							    <option value="1">Option 1</option>
+							    <option value="2">Option 2</option>
+							    <option value="3">Option 3</option>
+							</select>
+    <!-- <label>Materialize Multiple Select</label> -->
+						</div>
+
+   <!-- <label>Browser Select</label> -->
+						    <select class="browser-default" >
+							    <option value="" disabled selected>选择展示方式</option>
+							    <option value="1"><a href="#">柱状图</a></option>
+							    <option value="2">饼图</option>
+							    <option value="3">线性</option>
+						    </select>
+
+					</div>
+
+					<div class="col s12 m8 ">
+						<span class="right">
+							<a href="#"><i class="material-icons" style="margin:18px 9px;">search</i></a>
+							<a href="#"><i class="material-icons" style="margin:18px 9px;">view_module</i></a>
+							<a href="#"><i class="material-icons" style="margin:18px 9px;">refresh</i></a>
+							<a href="#"><i class="material-icons" style="margin:18px 9px;">more_vert</i></a>
+
+						</span>
+					</div>
+				</div>
+
+				<div style="display: block; width: 860px; height: 460px;">
+					<canvas id="myChart" width="860" height="460" ></canvas>
+					<script>
+					var ctx = document.getElementById("myChart");
+					var myChart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+							datasets: [{
+								label: '# of Votes',
+								data: [12, 19, 3, 5, 2, 3],
+								backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [
+									'rgba(255,99,132,1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+							}]
+						},
+						options: {
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero:true
+									}
+								}]
+							}
+						}
+					});
+					</script>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>监测页面的总的内容</title>
+    <link rel="stylesheet" href="css/monitor.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/materialize.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h3>滁河大桥监测内容</h3>
+    </header>
+
+    <main>
+      <div class="container">
+
+        <div class="leftsidebar_box">
+          <div class="line"></div>
+            <dl class="system_log">
+              <dt>实时传感器<i class="material-icons right">arrow_drop_down</i></dt>
+              <dd class="first_dd"><a href="monitor/monitor-nd.html">挠度</a></dd>
+              <dd><a href="monitor/monitor-wy.html">位移</a></dd>
+              <dd><a href="monitor/monitor-czd.html">垂直度</a></dd>
+              <dd><a href="monitor/monitor-yb.html">应变</a></dd>
+              <dd><a href="monitor/monitor-sl.html">索力</a></dd>
+              <dd><a href="monitor/monitor-zd.html">振动</a></dd>
+              <dd><a href="monitor/monitor-wsd.html">温湿度</a></dd>
+              <dd><a href="monitor/monitor-fs.html">腐蚀</a></dd>
+              <dd><a href="monitor/monitor-hz.html">交通荷载</a></dd>
+              <dd><a href="monitor/monitor-sp.html">视频监控</a></dd>
+            </dl>
+            <dl class="custom">
+              <dt>分析数据方法<i class="material-icons right">arrow_drop_down</i></dt>
+              <dd class="first_dd"><a href="#">傅里叶变换</a></dd>
+              <dd><a href="#">相关性</a></dd>
+              <dd><a href="#">小波算法</a></dd>
+              <dd><a href="#">神经元</a></dd>
+            </dl>
+            <dl class="channel">
+              <dt>报告报表<i class="material-icons right">arrow_drop_down</i></dt>
+              <dd class="first_dd"><a href="#">周报表</a></dd>
+              <dd><a href="report.html">月报表</a></dd>
+              <dd><a href="#">年报表</a></dd>
+            </dl>
+            <dl class="app">
+              <dt>维护记录<i class="material-icons right">arrow_drop_down</i></dt>
+              <dd class="first_dd"><a href="#">系统故障维护记录</a></dd>
+              <dd><a href="#">人工维护记录</a></dd>
+            </dl>
+            <dl class="cloud">
+              <dt>大数据云平台<i class="material-icons right">arrow_drop_down</i></dt>
+              <dd class="first_dd"><a href="#">平台运营商管理</a></dd>
+            </dl>
+          </div>
+
+        </div>
+        <script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+        <script>
+        $(function(){
+        	$(".leftsidebar_box dt").css({"background-color":"#3992d0"});
+        	$(".leftsidebar_box dt img").attr("src");
+        	$(".leftsidebar_box dd").hide();
+        	$(".leftsidebar_box dt").click(function(){
+        		$(".leftsidebar_box dt").css({"background-color":"#3992d0"})
+        		$(this).css({"background-color": "#317eb4"});
+        		$(this).parent().find('dd').removeClass("menu_chioce");
+        		$(".leftsidebar_box dt img").attr("src","images/select_xl01.png");
+        		$(this).parent().find('img').attr("src","images/select_xl.png");
+        		$(".menu_chioce").slideUp();
+        		$(this).parent().find('dd').slideToggle();
+        		$(this).parent().find('dd').addClass("menu_chioce");
+        	});
+        })
+        </script>
+
+
+
+    </main>
+
+    <footer>
+      copyright©南京智行信息科技有限公司
+
+    </footer>
+
+  </body>
+</html>

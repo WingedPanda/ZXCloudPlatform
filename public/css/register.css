@@ -1,0 +1,32 @@
+
+header{
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  justify-content: center;
+}
+
+*{
+   font-family: 微软雅黑；
+   color: black;
+   background-color: #e3f2fd;
+}
+
+footer
+{
+    position: fixed; /* 相对于浏览器绝对位置*/
+    display: flex;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    justify-content: center;
+    border-top: 1px solid #eee;
+    font-size: 16px;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4
+{
+    font-weight: normal; /* 字体的粗细：正常*/
+    padding: 0;
+    margin: 0;
+}

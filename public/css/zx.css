@@ -1,0 +1,99 @@
+*
+{
+    font-family: 微软雅黑;
+    color: #333;
+}
+
+header
+{
+    height: 50px;
+    background-color: blue;
+}
+
+main
+{
+
+}
+
+footer
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    background-color:blue;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4
+{
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.tile-container section
+{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.tile-container .tile
+{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    background: rgb(0, 122, 204);
+    padding: 20px;
+}
+
+.tile-container .tile *
+{
+    color: white;
+}
+
+.tile-container .tile .title
+{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tile-container .tile .indicator
+{
+    display: inline-block;
+    margin-top: 22px;
+}
+
+.tile-container .tile .humidity.indicator
+{
+    margin-left: 50px;
+}
+
+.tile-container .tile.col-2
+{
+    width: 310px;
+}
+
+.tile-container .tile.col-3
+{
+    width: 470px;
+}
+
+.tile-container .tile.col-4
+{
+    width: 630px;
+}
+
+
+
+.map-tile.tile
+{
+    width: 470px;
+    height: 470px;
+    background: yellow;
+}
