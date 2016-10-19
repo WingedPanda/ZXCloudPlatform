@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>重新修改实时监测内容</title>
+    <link rel="stylesheet" href="css/example.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/Chart.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <div class="box">
+      <span class="item"><a href="#"><i class="material-icons">menu</i></a></span>
+      <span class="item"><h4>滁河大桥监测内容</h4></span>
+      <span class="item"><a href="#"><i class="material-icons">fast_rewind</i></a></span>
+    </div>
+
+    <div class="section">
+      <div class="row">
+        <div class="col s6">
+          <div class="tile1">
+            <span class="day">2016年10月19日</span>
+            <span class="hour">10:55</span>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <div class="tile2">
+            <span class="number">24.123</span>
+            <span class="unit">℃</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="row">
+        <div class="col s2">
+          <div class="title1">
+            <span class="estimate">24.1</span>
+            <span class="unit">℃</span>
+          </div>
+
+        </div>
+        <div class="col s4">
+          <div class="title2">
+            <span class="plug-in">图标插件</span>
+          </div>
+
+        </div>
+        <div class="col s3">
+          <div class="title3">
+            <div class="day">
+              today
+            </div>
+            <div class="value">
+              <span>min:-10℃</span>
+              <span>max:40℃</span>
+              <span>mean:20℃</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="col s3">
+          <div class="title3">
+            <div class="day">
+              yesterday
+            </div>
+            <div class="value">
+              <span>min:-10℃</span>
+              <span>max:40℃</span>
+              <span>mean:20℃</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div  class="chart" style="width:50%">
+      <canvas id="myChart" width="500" height="300" ></canvas>
+      <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }]
+          }
+        }
+      });
+      </script>
+    </div>
+
+
+  </body>
+</html>
